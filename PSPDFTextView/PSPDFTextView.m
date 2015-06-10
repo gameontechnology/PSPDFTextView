@@ -97,7 +97,7 @@
             // Calculate new content offset.
             CGPoint contentOffset = self.contentOffset;
             if (CGRectGetMinY(rect) < CGRectGetMinY(visibleRect)) { // scroll up
-                contentOffset.y = CGRectGetMinY(rect) - insets.top;
+                contentOffset.y = MAX(CGRectGetMinY(rect) - insets.top, 0);
             }else { // scroll down
                 contentOffset.y = CGRectGetMaxY(rect) + insets.bottom - CGRectGetHeight(self.bounds);
             }
